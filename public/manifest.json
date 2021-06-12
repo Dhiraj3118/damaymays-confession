@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "damaymays confesssions App",
+  "name": "A confession app for DA_IICT students",
   "icons": [
     {
       "src": "favicon.ico",

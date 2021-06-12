@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Confess from './Confess';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Admin from './Admin';
+import Memes from './Memes';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" exact component={App} />
-      <Route path="/adminpage/20704554" component={Admin} />
-    </Switch>
-  </BrowserRouter>
+  <div>
+
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={Confess} />
+        <Route path="/memes" exact component={Memes} />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
+  </div>
   ,
   document.getElementById('root')
 );
