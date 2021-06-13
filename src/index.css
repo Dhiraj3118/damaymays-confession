@@ -213,22 +213,7 @@ input{
   justify-content: center;
   align-items: center;
   min-height: 32rem;
-  /* background: linear-gradient(to left, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite alternate; */
-  background: url('./imgs/memebg.jpg') repeat center center/contain;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 50% 50%;
-	}
-	100% {
-		background-position: 100% 50%;
-	}
+  background: url('./imgs/memebg.jpg') no-repeat center center/cover;
 }
 
 .meme-form{
@@ -358,6 +343,7 @@ input{
 
   .meme-dashboard{
     min-height: 37rem;
+    background: url('./imgs/memebg-small.jpg') repeat center center/cover;
   }
 
   .meme-form{

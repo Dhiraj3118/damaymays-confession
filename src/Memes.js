@@ -24,6 +24,8 @@ const Memes = () => {
             setUploading(true);
             const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
 
+            const str = caption.length < 250 ? caption.trim() : caption.trim().substring(0, 250);
+
             uploadTask.on('state_change',
                 (snapshot) => {
                     console.log(snapshot);
@@ -36,7 +38,7 @@ const Memes = () => {
                         .then(url => {
                             db.collection('memes').add({
                                 url: url,
-                                caption: caption,
+                                caption: str,
                                 timestamp: firebase.firestore.Timestamp.now()
                             })
                             setCaption('');
@@ -58,8 +60,8 @@ const Memes = () => {
     return (
         <div className="meme-dashboard">
             <form className="meme-form">
-                <input type="file" id="img" accept="image/png, image/jpeg, image/jpg" onChange={handleUpload} />
-                <input type="text" id="caption" placeholder="Caption" value={caption} onChange={(e) => setCaption(e.target.value)} />
+                <input type="file" id="img" onChange={handleUpload} />
+                <input type="text" id="caption" placeholder="Caption(upto 250 characters)" value={caption} maxLength="250" onChange={(e) => setCaption(e.target.value)} />
                 <button onClick={handleFireBaseUpload} disabled={uploading}>{uploading ? 'Uploading' : 'Submit'}</button>
             </form>
         </div>

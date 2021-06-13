@@ -6,16 +6,15 @@ function App() {
   const [input, setInput] = useState("");
   const [btn, setBtn] = useState("Post Confession");
 
-
   const postConfession = (e) => {
     e.preventDefault();
-    console.log(input)
     if (input === "" || input.trim() === "") {
       alert("Confession box is empty")
     }
     else {
+      const str = input.length < 1000 ? input.trim() : input.trim().substring(0, 1000);
       db.collection("confessions").add({
-        confession: input.trim(),
+        confession: str,
         read: false,
         timestamp: firebase.firestore.Timestamp.now()
       })
